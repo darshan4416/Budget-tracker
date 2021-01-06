@@ -1,0 +1,55 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+
+<div>
+    <div class="container mx-auto shadow pr-10 my-3">
+        <div class="alert alert-dark">Add Details</div>
+        <div class="row p-4 mr-3" >
+            <form action="/add-tracker/" method="post">
+                {%csrf_token%}
+                {{form}}
+                <input class="btn btn-dark" type="submit" value="ADD">
+            </form>
+        </div>
+      </div>
+      <div class="container mx-auto my-3">
+          <div class="row">
+                <div class="col-lg-10">
+                    <table class="table table-dark table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <td>#</td>
+                                <td>title</td>
+                                <td>sign</td>
+                                <td>amount</td>
+                                <td>action</td>
+                                <td>date</td>
+                                <td>delete</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for tracker in trackers%}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{tracker.title}}</td>
+                                <td>{{tracker.amount_sign}}</td>
+                                <td>{{tracker.amount}}</td>
+                                <td>{{tracker.action}}</td>
+                                <td>{{tracker.date}}</td>
+                                <td class="btn">
+                                    <a href="delete-tracker/{{tracker.id}}">🗑️</a></td>
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                    
+                  </div>
+              </div>
+        </div>
+            
+</div>
+    
+
+{%endblock%}

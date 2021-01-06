@@ -1,0 +1,14 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div class="col-lg-5 mx-auto my-5 shadow">
+    <div class="alert alert-success"><h3>Login Here</h3></div>
+    <div class="p-4">
+        <form action="/login/" method="post">
+            {%csrf_token%}
+            {{form.as_p}}
+            <input type="submit" value="Login" class="btn btn-success">
+        </form>   
+    </div>
+</div>
+{%endblock%}

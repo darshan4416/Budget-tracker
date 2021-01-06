@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+        <div class="col-lg-5 mx-auto shadow my-5">
+            <div class="alert alert-success mx-auto">
+                <h3>Create Account</h3>
+            </div> 
+        
+            <form action="/signup/" method="post">
+                {%csrf_token%}
+                {{form.as_p}}
+                <button type="submit" class="btn btn-success">Create Account</button>
+            </form>
+           
+        </div>
+
+{%endblock%}
